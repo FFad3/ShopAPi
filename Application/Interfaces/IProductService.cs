@@ -5,11 +5,12 @@ namespace Application.Interfaces
 {
     public interface IProductService
     {
-        ProductDto AddNewProduct(CreateProductDto newProduct);
         IEnumerable<ProductDto> GetAllProducts();
         ProductDto GetProductById(int id);
+        ProductDto GetPoductByName(string name);
+        ProductDto AddNewProduct(CreateProductDto newProduct);       
         void UpdateProduct(UpdateProductDto updateProduct);
         void DeleteProduct(int id);
-        int ClearProducts();
+        
     }
 }

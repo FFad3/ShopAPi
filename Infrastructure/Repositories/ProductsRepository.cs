@@ -18,45 +18,33 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
+        public IEnumerable<Product> GetAll()
+        {
+            return _context.Products;
+        }
+        public Product GetById(int id)
+        {
+            return _context.Products.SingleOrDefault(x => x.Id == id);
+        }
+        public Product GetByName(string name)
+        {
+            return _context.Products.FirstOrDefault(x => x.Name == name);
+        }
         public Product Add(Product ob)
         {
             _context.Products.Add(ob);
             _context.SaveChanges();
             return ob;
         }
-
-        public int ClearTable()
-        {
-            int counter = 0;
-            var productstable = _context.Products;
-            foreach (var product in productstable)
-            {
-                _context.Products.Remove(product);
-                counter++;
-            }
-            return counter;
-        }
-
-        public void Delete(Product ob)
-        {
-            _context.Products.Remove(ob);
-            _context.SaveChanges();
-        }
-
-        public IEnumerable<Product> GetAll()
-        {
-            return _context.Products;
-        }
-
-        public Product GetById(int id)
-        {
-            return _context.Products.SingleOrDefault(x => x.Id == id);
-        }
-
         public void Update(Product ob)
         {
             _context.Products.Update(ob);
             _context.SaveChanges();
         }
+        public void Delete(Product ob)
+        {
+            _context.Products.Remove(ob);
+            _context.SaveChanges();
+        }       
     }
 }
