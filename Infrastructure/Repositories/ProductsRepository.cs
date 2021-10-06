@@ -1,7 +1,9 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
+using Microsoft.Data.SqlClient;
 using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +21,26 @@ namespace Infrastructure.Repositories
         public Product Add(Product ob)
         {
             _context.Products.Add(ob);
+            _context.SaveChanges();
             return ob;
+        }
+
+        public int ClearTable()
+        {
+            int counter = 0;
+            var productstable = _context.Products;
+            foreach (var product in productstable)
+            {
+                _context.Products.Remove(product);
+                counter++;
+            }
+            return counter;
         }
 
         public void Delete(Product ob)
         {
             _context.Products.Remove(ob);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Product> GetAll()
@@ -39,7 +55,8 @@ namespace Infrastructure.Repositories
 
         public void Update(Product ob)
         {
-            throw new NotImplementedException();
+            _context.Products.Update(ob);
+            _context.SaveChanges();
         }
     }
 }

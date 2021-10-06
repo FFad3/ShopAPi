@@ -8,9 +8,8 @@ namespace Domain.Entities
     [Table("Products")]
     public class Product : OperationsInfo
     {
-        public Product(int id, string name, decimal price, int count)
+        public Product(string name, double price, int count)
         {
-            Id = id;
             Name = name;
             Price = price;
             Count = count;
@@ -23,9 +22,9 @@ namespace Domain.Entities
         [MaxLength(30)]
         public string Name { get; set; }
         [Required]
-        public decimal Price { get; set; }
-        [Required]
         public int Count { get; set; }
+        [Required]
+        public double Price { get; set; }      
         [Required]
         public DateTime ExpirationDate { get; set; }
     }

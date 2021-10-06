@@ -13,5 +13,6 @@ namespace Domain.Common
         T Add(T ob);
         void Update(T ob);
         void Delete(T ob);
+        int ClearTable();
     }
 }

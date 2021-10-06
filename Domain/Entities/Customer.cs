@@ -9,9 +9,8 @@ namespace Domain.Entities
     [Table("Customers")]
     public class Customer: OperationsInfo
     {
-        public Customer(int id, string name, string forname)
+        public Customer(string name, string forname)
         {
-            Id = id;
             Name = name;
             Forname = forname;
             Created = DateTime.UtcNow;

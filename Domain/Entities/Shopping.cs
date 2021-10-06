@@ -10,18 +10,18 @@ namespace Domain.Entities
     [Table("Shoppings")]
     public class Shopping: OperationsInfo
     {
-        public Shopping(int id)
+        public Shopping()
         {
-            Id = id;
             DateOfPurchase = DateTime.UtcNow;
             Created = DateTime.UtcNow;
+            TotalPrice = Products.Sum(x => x.Price * x.Count);
         }
         [Key]
         public int Id { get; set; }
         [Required]
         public List<Product> Products { get; set; }
         [Required]
-        public decimal TotalPrice { get; set; }
+        public double TotalPrice { get; set; }
         [Required]
         public DateTime DateOfPurchase { get; set; }
     }
