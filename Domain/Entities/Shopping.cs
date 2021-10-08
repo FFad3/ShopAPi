@@ -12,7 +12,6 @@ namespace Domain.Entities
     {
         public Shopping()
         {
-            DateOfPurchase = DateTime.UtcNow;
             Created = DateTime.UtcNow;
             TotalPrice = Products.Sum(x => x.Price * x.Count);
         }
@@ -22,7 +21,5 @@ namespace Domain.Entities
         public List<Product> Products { get; set; }
         [Required]
         public double TotalPrice { get; set; }
-        [Required]
-        public DateTime DateOfPurchase { get; set; }
     }
 }

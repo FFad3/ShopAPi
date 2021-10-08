@@ -13,4 +13,9 @@
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTO\Customer\" />
+    <Folder Include="DTO\Shopping\" />
+  </ItemGroup>
+
 </Project>
