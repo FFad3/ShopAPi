@@ -13,13 +13,17 @@ namespace Domain.Entities
         public Shopping()
         {
             Created = DateTime.UtcNow;
-            TotalPrice = Products.Sum(x => x.Price * x.Count);
         }
         [Key]
         public int Id { get; set; }
         [Required]
         public List<Product> Products { get; set; }
         [Required]
-        public double TotalPrice { get; set; }
+        public double TotalPrice { 
+            get 
+            {
+                return Products.Sum(x => x.Price * x.Count);
+            } 
+        }
     }
 }
