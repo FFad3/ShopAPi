@@ -35,9 +35,6 @@ namespace ShopAPI
 
             services.AddDbContext<ShopContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("ShopCS")));
-
-            services.AddControllers();
-
             
         }
 

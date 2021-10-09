@@ -10,6 +10,7 @@ namespace Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services.AddScoped<IProductsRepository, ProductsRepository>();
+            services.AddScoped<IShoppingRepository, ShoppingRepository>();
             return services;
         }
     }

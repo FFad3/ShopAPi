@@ -31,6 +31,7 @@ namespace Infrastructure.Repositories
             _context.SaveChanges();
             return ob;
         }
+
         public void Update(Shopping ob)
         {
             _context.Shoppings.Update(ob);
