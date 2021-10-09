@@ -11,5 +11,8 @@ namespace Application.Interfaces
     {
         IEnumerable<Shopping> GetAllShoppings();
         Shopping GetShoppingById(int id);
+        Shopping AddShopping(Shopping newShopping);
+        void UpdateShopping(Shopping shopping);
+        void DeleteShopping(int id);
     }
 }

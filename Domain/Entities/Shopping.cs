@@ -19,11 +19,6 @@ namespace Domain.Entities
         [Required]
         public List<Product> Products { get; set; }
         [Required]
-        public double TotalPrice { 
-            get 
-            {
-                return Products.Sum(x => x.Price * x.Count);
-            } 
-        }
+        public double TotalPrice { get; set; }
     }
 }

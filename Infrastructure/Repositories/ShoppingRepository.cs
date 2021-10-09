@@ -14,7 +14,6 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
-
         public IEnumerable<Shopping> GetAll()
         {
             return _context.Shoppings;

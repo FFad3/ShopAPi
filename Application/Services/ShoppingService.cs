@@ -22,6 +22,7 @@ namespace Application.Services
             _mapper = mapper;
         }
 
+
         public IEnumerable<Shopping> GetAllShoppings()
         {
             return _shoppingRepository.GetAll();
@@ -30,6 +31,21 @@ namespace Application.Services
         public Shopping GetShoppingById(int id)
         {
             return _shoppingRepository.GetById(id);
+        }
+
+        public Shopping AddShopping(Shopping newShopping)
+        {
+            _shoppingRepository.Add(newShopping);
+            return newShopping;
+        }
+
+        public void UpdateShopping(Shopping shopping)
+        {
+            throw new NotImplementedException();
+        }
+        public void DeleteShopping(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IProductService, ProductsService>();
+            services.AddScoped<IShoppingService, ShoppingService>();
             return services;
         }
     }
