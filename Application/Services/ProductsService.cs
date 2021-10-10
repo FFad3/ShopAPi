@@ -20,26 +20,26 @@ namespace Application.Services
             _productsRepository = productsRepository;
             _mapper = mapper;
         }           
-        public IEnumerable<ProductDto> GetAllProducts()
+        public IEnumerable<ProductFullInfoDto> GetAllProducts()
         {
             var products = _productsRepository.GetAll();
-            return _mapper.Map<IEnumerable<ProductDto>>(products);
+            return _mapper.Map<IEnumerable<ProductFullInfoDto>>(products);
         }
-        public ProductDto GetProductById(int id)
+        public ProductFullInfoDto GetProductById(int id)
         {
             var product = _productsRepository.GetById(id);
-            return _mapper.Map<ProductDto>(product);
+            return _mapper.Map<ProductFullInfoDto>(product);
         }
-        public ProductDto GetPoductByName(string name)
+        public ProductFullInfoDto GetPoductByName(string name)
         {
             var product = _productsRepository.GetByName(name);
-            return _mapper.Map<ProductDto>(product);
+            return _mapper.Map<ProductFullInfoDto>(product);
         }        
-        public ProductDto AddNewProduct(CreateProductDto newProdcut)
+        public ProductFullInfoDto AddNewProduct(CreateProductDto newProdcut)
         {
             var product = _mapper.Map<Product>(newProdcut);
             _productsRepository.Add(product);
-            return _mapper.Map<ProductDto>(product);
+            return _mapper.Map<ProductFullInfoDto>(product);
         }
         public void UpdateProduct(UpdateProductDto updateProduct)
         {

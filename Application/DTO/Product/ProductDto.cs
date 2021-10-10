@@ -2,6 +2,10 @@
 using AutoMapper;
 using Domain.Entities;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Application.DTO
 {
@@ -11,8 +15,6 @@ namespace Application.DTO
         public string Name { get; set; }
         public int Count { get; set; }
         public decimal Price { get; set; }
-        public DateTime ExpirationDate { get; set; }
-
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Product, ProductDto>();

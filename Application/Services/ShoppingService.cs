@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.DTO;
+using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
@@ -23,14 +24,16 @@ namespace Application.Services
         }
 
 
-        public IEnumerable<Shopping> GetAllShoppings()
+        public IEnumerable<ShoppingDto> GetAllShoppings()
         {
-            return _shoppingRepository.GetAll();
+            var shoppings = _shoppingRepository.GetAll();
+            return _mapper.Map<IEnumerable<ShoppingDto>>(shoppings);
         }
 
-        public Shopping GetShoppingById(int id)
+        public ShoppingFullInfoDto GetShoppingById(int id)
         {
-            return _shoppingRepository.GetById(id);
+            var shopping = _shoppingRepository.GetById(id);
+            return _mapper.Map<ShoppingFullInfoDto>(shopping);
         }
 
         public Shopping AddShopping(Shopping newShopping)

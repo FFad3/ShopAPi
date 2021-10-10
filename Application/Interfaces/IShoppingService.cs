@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.DTO;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace Application.Interfaces
 {
     public interface IShoppingService
     {
-        IEnumerable<Shopping> GetAllShoppings();
-        Shopping GetShoppingById(int id);
+        IEnumerable<ShoppingDto> GetAllShoppings();
+        ShoppingFullInfoDto GetShoppingById(int id);
         Shopping AddShopping(Shopping newShopping);
         void UpdateShopping(Shopping shopping);
         void DeleteShopping(int id);
