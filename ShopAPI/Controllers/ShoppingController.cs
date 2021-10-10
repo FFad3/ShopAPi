@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.DTO;
+using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
 using Microsoft.AspNetCore.Http;
@@ -37,7 +38,7 @@ namespace ShopAPI.Controllers
         }
         [SwaggerOperation(Summary ="Create new shopping")]
         [HttpPost]
-        public IActionResult CreateShopping(Shopping newShopping)
+        public IActionResult CreateShopping(CreateShoppingDto newShopping)
         {
             var shopping = _shoppingService.AddShopping(newShopping);
             return Ok(shopping);

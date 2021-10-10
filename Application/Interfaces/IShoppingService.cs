@@ -12,7 +12,7 @@ namespace Application.Interfaces
     {
         IEnumerable<ShoppingDto> GetAllShoppings();
         ShoppingFullInfoDto GetShoppingById(int id);
-        Shopping AddShopping(Shopping newShopping);
+        ShoppingFullInfoDto AddShopping(CreateShoppingDto newShopping);
         void UpdateShopping(Shopping shopping);
         void DeleteShopping(int id);
     }

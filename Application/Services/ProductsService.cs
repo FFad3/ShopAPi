@@ -38,6 +38,7 @@ namespace Application.Services
         public ProductFullInfoDto AddNewProduct(CreateProductDto newProdcut)
         {
             var product = _mapper.Map<Product>(newProdcut);
+            product.LastModified = DateTime.UtcNow;
             _productsRepository.Add(product);
             return _mapper.Map<ProductFullInfoDto>(product);
         }

@@ -36,10 +36,12 @@ namespace Application.Services
             return _mapper.Map<ShoppingFullInfoDto>(shopping);
         }
 
-        public Shopping AddShopping(Shopping newShopping)
+        public ShoppingFullInfoDto AddShopping(CreateShoppingDto newShopping)
         {
-            _shoppingRepository.Add(newShopping);
-            return newShopping;
+            var shopping = _mapper.Map<Shopping>(newShopping); //mapowanie ?
+            shopping.LastModified = DateTime.UtcNow;
+            _shoppingRepository.Add(shopping);
+            return _mapper.Map<ShoppingFullInfoDto>(shopping);
         }
 
         public void UpdateShopping(Shopping shopping)
@@ -48,7 +50,10 @@ namespace Application.Services
         }
         public void DeleteShopping(int id)
         {
-            throw new NotImplementedException();
+            var shopping = _shoppingRepository.GetById(id);
+            _shoppingRepository.Delete(shopping);
         }
+
+        
     }
 }
