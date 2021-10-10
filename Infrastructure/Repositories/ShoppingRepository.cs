@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,7 +22,7 @@ namespace Infrastructure.Repositories
 
         public Shopping GetById(int id)
         {
-            return _context.Shoppings.FirstOrDefault(x=>x.Id==id);
+            return _context.Shoppings.Include(x => x.Products).FirstOrDefault(x => x.Id == id);
         }
 
         public Shopping Add(Shopping ob)
