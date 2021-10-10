@@ -13,14 +13,6 @@ namespace Domain.Entities
         public Shopping()
         {
             Created = DateTime.UtcNow;
-            if (Products==null)
-            {
-                TotalPrice = 0;
-            }
-            else
-            {
-                TotalPrice = Products.Sum(x => x.Count * x.Price);
-            }
         }
         [Key]
         public int Id { get; set; }
@@ -28,5 +20,6 @@ namespace Domain.Entities
         public List<Product> Products { get; set; }
         [Required]
         public double TotalPrice { get; set; }
+
     }
 }

@@ -27,6 +27,7 @@ namespace Infrastructure.Repositories
 
         public Shopping Add(Shopping ob)
         {
+            ob.TotalPrice = ob.Products.Sum(x => x.Count * x.Price);
             _context.Shoppings.Add(ob);
             _context.SaveChanges();
             return ob;
