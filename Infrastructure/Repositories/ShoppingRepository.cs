@@ -13,7 +13,7 @@ namespace Infrastructure.Repositories
 
         public ShoppingRepository(ShopContext context)
         {
-            _context = context;
+            _context = context;           
         }
         public IEnumerable<Shopping> GetAll()
         {
@@ -21,7 +21,7 @@ namespace Infrastructure.Repositories
         }
 
         public Shopping GetById(int id)
-        {
+        {     
             return _context.Shoppings.Include(x => x.Products).FirstOrDefault(x => x.Id == id);
         }
 

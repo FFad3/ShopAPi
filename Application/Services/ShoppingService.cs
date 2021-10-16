@@ -52,8 +52,6 @@ namespace Application.Services
         {
             var shopping = _shoppingRepository.GetById(id);
             _shoppingRepository.Delete(shopping);
-        }
-
-        
+        }       
     }
 }

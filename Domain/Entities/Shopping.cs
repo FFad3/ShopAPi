@@ -20,6 +20,5 @@ namespace Domain.Entities
         public List<Product> Products { get; set; }
         [Required]
         public double TotalPrice { get; set; }
-
     }
 }
