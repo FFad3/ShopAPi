@@ -5,9 +5,6 @@ using Domain.Entities;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
@@ -28,19 +25,19 @@ namespace Application.Services
         public ProductFullInfoDto GetProductById(int id)
         {
             var product = _productsRepository.GetById(id);
-            if (product == null)
-            {
+
+            if (product is null)
                 throw new ArgumentOutOfRangeException("No product with current id");
-            }
+
             return _mapper.Map<ProductFullInfoDto>(product);
         }
         public ProductFullInfoDto GetPoductByName(string name)
         {
             var product = _productsRepository.GetByName(name);
+
             if (product == null)
-            {
                 throw new ArgumentOutOfRangeException("No product with current name");
-            }
+
             return _mapper.Map<ProductFullInfoDto>(product);
         }        
         public ProductFullInfoDto AddNewProduct(CreateProductDto newProdcut)
@@ -48,9 +45,7 @@ namespace Application.Services
             var product = _mapper.Map<Product>(newProdcut);
 
             if (product.Name==null || product.Price< 0 ||product.Count < 0)
-            {
                 throw new ArgumentOutOfRangeException("All field need to be correct");
-            }
 
             product.LastModified = DateTime.UtcNow;
             _productsRepository.Add(product);
@@ -62,9 +57,7 @@ namespace Application.Services
             var product = _mapper.Map(updateProduct, existingProduct);
 
             if (product.Name == null || product.Price < 0 || product.Count < 0)
-            {
                 throw new ArgumentOutOfRangeException("All field need to be correct");
-            }
 
             _productsRepository.Update(product);
         }
@@ -72,9 +65,8 @@ namespace Application.Services
         {
             var product = _productsRepository.GetById(id);
             if (product is null)
-            {
                 throw new ArgumentOutOfRangeException("No product with current id");
-            }
+
             _productsRepository.Delete(product);
         }
     }

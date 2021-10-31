@@ -3,12 +3,8 @@ using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
-using Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
@@ -33,9 +29,8 @@ namespace Application.Services
         {
             var shopping = _shoppingRepository.GetById(id);
             if(shopping==null)
-            {
                 throw new ArgumentOutOfRangeException("No shopping with current id");
-            }
+
             return _mapper.Map<ShoppingFullInfoDto>(shopping);
         }
 
@@ -44,9 +39,7 @@ namespace Application.Services
             var shopping = _mapper.Map<Shopping>(newShopping); //mapowanie
 
             if (shopping.Products.Count==0)
-            {
                 throw new ArgumentOutOfRangeException("Cant be empty");
-            }
 
             shopping.LastModified = DateTime.UtcNow;
             _shoppingRepository.Add(shopping);
@@ -55,7 +48,7 @@ namespace Application.Services
 
         public void UpdateShopping(Shopping shopping)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("No implemented functionality");
         }
 
         public void DeleteShopping(int id)

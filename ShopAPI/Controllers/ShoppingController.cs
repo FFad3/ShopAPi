@@ -1,14 +1,8 @@
 ﻿using Application.DTO;
 using Application.Interfaces;
 using AutoMapper;
-using Domain.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ShopAPI.Controllers
 {
@@ -22,6 +16,7 @@ namespace ShopAPI.Controllers
         {
             _shoppingService = shoppingService;
         }
+
         [SwaggerOperation(Summary ="Show all shoppings")]
         [HttpGet]
         public IActionResult GetShoppings()
@@ -29,13 +24,15 @@ namespace ShopAPI.Controllers
             var shoppings = _shoppingService.GetAllShoppings();
             return Ok(shoppings);
         }
-        [SwaggerOperation(Summary ="Show shopping with selected id")]
+
+        [SwaggerOperation(Summary ="Show shopping with selected Id")]
         [HttpGet("{id}")]
         public IActionResult GetShoppingById(int id)
         {
             var shopping = _shoppingService.GetShoppingById(id);
             return Ok(shopping);
         }
+
         [SwaggerOperation(Summary ="Create new shopping")]
         [HttpPost]
         public IActionResult CreateShopping(CreateShoppingDto newShopping)
