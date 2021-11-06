@@ -8,7 +8,7 @@ using System.Linq;
 namespace Domain.Entities
 {
     [Table("Shoppings")]
-    public class Shopping: OperationsInfo
+    public class Shopping: OperationsInfo, IEntity
     {
         public Shopping()
         {

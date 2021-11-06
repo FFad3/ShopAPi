@@ -38,7 +38,7 @@ namespace ShopAPI.Controllers
         }
 
         [SwaggerOperation(Summary = "Get product by name")]
-        [HttpGet("{name:string}")]
+        [HttpGet("{name}")]
         public IActionResult Get(string name)
         {
             var product = _productService.GetPoductByName(name);

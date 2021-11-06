@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Common
 {
-    public interface IUniversalInterface<T>
+    public interface IUniversalInterface<T> where T:IEntity
     {
         IEnumerable<T> GetAll();
         T GetById(int id);

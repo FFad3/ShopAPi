@@ -26,7 +26,7 @@ namespace ShopAPI.Controllers
         }
 
         [SwaggerOperation(Summary ="Show shopping with selected Id")]
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public IActionResult GetShoppingById(int id)
         {
             var shopping = _shoppingService.GetShoppingById(id);

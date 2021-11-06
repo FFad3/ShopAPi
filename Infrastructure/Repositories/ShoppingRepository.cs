@@ -15,15 +15,9 @@ namespace Infrastructure.Repositories
         {
             _context = context;           
         }
-        public IEnumerable<Shopping> GetAll()
-        {
-            return _context.Shoppings;
-        }
+        public IEnumerable<Shopping> GetAll() => _context.Shoppings;
 
-        public Shopping GetById(int id)
-        {     
-            return _context.Shoppings.Include(x => x.Products).FirstOrDefault(x => x.Id == id);
-        }
+        public Shopping GetById(int id) => _context.Shoppings.Include(x => x.Products).FirstOrDefault(x => x.Id == id);
 
         public Shopping Add(Shopping ob)
         {

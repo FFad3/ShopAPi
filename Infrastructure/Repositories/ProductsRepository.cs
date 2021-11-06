@@ -18,18 +18,12 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
-        public IEnumerable<Product> GetAll()
-        {
-            return _context.Products;
-        }
-        public Product GetById(int id)
-        {
-            return _context.Products.SingleOrDefault(x => x.Id == id);
-        }
-        public Product GetByName(string name)
-        {
-            return _context.Products.FirstOrDefault(x => x.Name == name);
-        }
+        public IEnumerable<Product> GetAll() => _context.Products;
+
+        public Product GetById(int id) => _context.Products.SingleOrDefault(x => x.Id == id);
+
+        public Product GetByName(string name) => _context.Products.FirstOrDefault(x => x.Name == name);
+
         public Product Add(Product ob)
         {
             _context.Products.Add(ob);

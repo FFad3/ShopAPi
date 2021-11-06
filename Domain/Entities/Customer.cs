@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Domain.Entities
 {
     [Table("Customers")]
-    public class Customer: OperationsInfo
+    public class Customer: OperationsInfo,IEntity
     {
         public Customer(string name, string forname)
         {
